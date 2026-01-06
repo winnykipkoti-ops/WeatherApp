@@ -1,24 +1,88 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:padding="16dp"
+    android:gravity="center_horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!-- Centered Header -->
+    <TextView
+        android:id="@+id/header"
+        android:text="Weather App"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"/>
+
+    <!-- City Input -->
     <EditText
         android:id="@+id/cityInput"
         android:hint="Enter city"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:padding="8dp"/>
 
+    <!-- Button -->
     <Button
         android:id="@+id/getWeatherBtn"
         android:text="Get Weather"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"/>
 
-    <TextView
-        android:id="@+id/weatherResult"
-        android:textSize="18sp"
+    <!-- Weather Result in Card -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/weatherCard"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        card_view:cardCornerRadius="12dp"
+        card_view:cardElevation="6dp"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:padding="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Weather Icon -->
+            <ImageView
+                android:id="@+id/weatherIcon"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:contentDescription="Weather Icon"/>
+
+            <!-- City, Temp, Condition -->
+            <TextView
+                android:id="@+id/weatherResult"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:paddingTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <!-- Humidity -->
+            <TextView
+                android:id="@+id/humidityResult"
+                android:textSize="16sp"
+                android:paddingTop="4dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <!-- Precipitation -->
+            <TextView
+                android:id="@+id/precipitationResult"
+                android:textSize="16sp"
+                android:paddingTop="4dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
 </LinearLayout>
